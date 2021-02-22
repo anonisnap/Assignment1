@@ -15,9 +15,10 @@ public class Radiator {
 		currentState.turnDown(this);
 	}
 
-	public void getPower() {
+	public int getPower() {
 		int power = currentState.getPower();
 		System.out.println("Current Power output: " + power);
+		return power;
 	}
 
 	void setPowerState(RadiatorState state) {
