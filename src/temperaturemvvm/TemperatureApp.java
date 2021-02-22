@@ -14,16 +14,12 @@ public class TemperatureApp extends Application {
 		// Model
 		ModelFactory modelFactory = new ModelFactory();
 
-		// Radiator - 1 Radiator
-		Radiator radiator = new Radiator();
-		Radiator outdoorRadiator = new Radiator();
-
 		// Thermometer - 2 Thermometers
-		Thermometer therm1 = new Thermometer(modelFactory.getTemperatureModel(),"t1",10, radiator);
+		Thermometer therm1 = new Thermometer(modelFactory.getTemperatureModel(),"t1",10, modelFactory.getRadiatorModel().getRadiator());
 		therm1.setDistanceFromHeater(1);
-		Thermometer therm2 = new Thermometer(modelFactory.getTemperatureModel(),"t2",10, radiator);
+		Thermometer therm2 = new Thermometer(modelFactory.getTemperatureModel(),"t2",10, modelFactory.getRadiatorModel().getRadiator());
 		therm2.setDistanceFromHeater(7);
-		Thermometer outdoor = new Thermometer(modelFactory.getTemperatureModel(), "outdoor", 0, outdoorRadiator);
+//		Thermometer outdoor = new Thermometer(modelFactory.getTemperatureModel(), "outdoor", 0, modelFactory.getRadiatorModel().getRadiator());
 
 		// Thermometer Threads
 		Thread t1 = new Thread(therm1);

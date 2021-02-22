@@ -1,5 +1,6 @@
 package temperaturemvvm.view.temperature;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -7,6 +8,7 @@ import javafx.scene.layout.Region;
 import temperaturemvvm.core.ViewHandler;
 
 public class TemperatureViewController {
+	@FXML private Label radiatorPowerLabel;
 	@FXML private Label outputLabel;
 	@FXML private TextField filterField;
 	@FXML private Label filterLabel;
@@ -25,6 +27,7 @@ public class TemperatureViewController {
 		this.root = root;
 		filterLabel.textProperty().bind(temperatureViewModel.idProperty());
 		outputLabel.textProperty().bind(temperatureViewModel.temperatureProperty());
+		radiatorPowerLabel.textProperty().bind(temperatureViewModel.radiatorPower());
 	}
 
 	public Region getRoot() {
@@ -41,5 +44,13 @@ public class TemperatureViewController {
 	private void onFilter() {
 		temperatureViewModel.setId(filterField.getText());
 		updateButtonPressed();
+	}
+
+	public void turnPowerUp() {
+		temperatureViewModel.turnUpRadiator();
+	}
+
+	public void turnPowerDown() {
+		temperatureViewModel.turnDownRadiator();
 	}
 }

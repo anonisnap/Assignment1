@@ -8,7 +8,7 @@ public class ViewModelFactory {
 
 	public ViewModelFactory(ModelFactory modelFactory) {
 		this.modelFactory = modelFactory;
-		temperatureViewModel = new TemperatureViewModel(modelFactory.getTemperatureModel());
+		temperatureViewModel = new TemperatureViewModel(modelFactory.getTemperatureModel(),modelFactory.getRadiatorModel());
 	}
 
 	public TemperatureViewModel getTemperatureViewModel() {

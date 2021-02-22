@@ -16,9 +16,7 @@ public class Radiator {
 	}
 
 	public int getPower() {
-		int power = currentState.getPower();
-		System.out.println("Current Power output: " + power);
-		return power;
+		return currentState.getPower();
 	}
 
 	void setPowerState(RadiatorState state) {

@@ -55,6 +55,7 @@
          <children>
             <Button fx:id="powerUpButton" mnemonicParsing="false" onAction="#turnPowerUp" text="Power Up" />
             <Button fx:id="powerDownButton" mnemonicParsing="false" onAction="#turnPowerDown" text="Power Down" />
+            <Label fx:id="radiatorPowerLabel" text="N/A" />
          </children>
       </HBox>
     </children>

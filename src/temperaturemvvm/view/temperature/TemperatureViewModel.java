@@ -1,10 +1,9 @@
 package temperaturemvvm.view.temperature;
 
 import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
+import javafx.beans.value.ObservableValue;
+import temperaturemvvm.mediator.RadiatorModel;
 import temperaturemvvm.mediator.TemperatureModel;
 
 import java.beans.PropertyChangeEvent;
@@ -17,12 +16,18 @@ public class TemperatureViewModel implements PropertyChangeListener {
 	private StringProperty temperatureAsString;
 	private StringProperty id;
 
-	public TemperatureViewModel(TemperatureModel temperatureModel) {
+	private RadiatorModel radiatorModel;
+	private StringProperty radiatorPower;
+
+	public TemperatureViewModel(TemperatureModel temperatureModel, RadiatorModel radiatorModel) {
 		this.temperatureModel = temperatureModel;
+		this.radiatorModel = radiatorModel;
 		temperature = new SimpleDoubleProperty();
 		temperatureAsString = new SimpleStringProperty();
 		id = new SimpleStringProperty();
+		radiatorPower = new SimpleStringProperty();
 		temperatureModel.addListener("Temperature", this);
+		radiatorModel.addListener("Power Changed", this);
 	}
 
 	public void updateTemp() {
@@ -38,6 +43,15 @@ public class TemperatureViewModel implements PropertyChangeListener {
 		this.id.set(id);
 	}
 
+	public void turnUpRadiator() {
+		radiatorModel.turnUp();
+		radiatorPower.setValue("Radiator Power Level: " + radiatorModel.getPower());
+	}
+
+	public void turnDownRadiator() {
+		radiatorModel.turnDown();
+		radiatorPower.setValue("Radiator Power Level: " + radiatorModel.getPower());
+	}
 
 	public StringProperty temperatureProperty() {
 		return temperatureAsString;
@@ -52,4 +66,7 @@ public class TemperatureViewModel implements PropertyChangeListener {
 		Platform.runLater(this::updateTemp);
 	}
 
+	public StringProperty radiatorPower() {
+		return radiatorPower;
+	}
 }
