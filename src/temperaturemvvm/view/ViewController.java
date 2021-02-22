@@ -6,7 +6,10 @@ import temperaturemvvm.core.ViewHandler;
 
 public interface ViewController {
 	void init(ViewHandler viewHandler, ViewModel temperatureViewModel, Region root);
+
 	void swapScene(ActionEvent actionEvent);
+
 	Region getRoot();
+
 	void close();
 }

@@ -13,13 +13,13 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
-	private TemperatureModel temperatureModel;
-	private DoubleProperty temperature;
-	private StringProperty temperatureAsString;
-	private StringProperty id;
+	private final TemperatureModel temperatureModel;
+	private final DoubleProperty temperature;
+	private final StringProperty temperatureAsString;
+	private final StringProperty id;
 
-	private RadiatorModel radiatorModel;
-	private StringProperty radiatorPower;
+	private final RadiatorModel radiatorModel;
+	private final StringProperty radiatorPower;
 
 	public TemperatureViewModel(TemperatureModel temperatureModel, RadiatorModel radiatorModel) {
 		this.temperatureModel = temperatureModel;
