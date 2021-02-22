@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import temperaturemvvm.view.ViewController;
+import temperaturemvvm.view.graph.GraphViewController;
 import temperaturemvvm.view.temperature.TemperatureViewController;
 
 public class ViewHandler extends Application {
@@ -25,9 +27,15 @@ public class ViewHandler extends Application {
 
 	public void openView(String id) {
 		Region root = null;
+		ViewController controller;
 		switch (id) {
 			case "temperature":
-				root = loadTemperatureView("../view/temperature/TemperatureView.fxml");
+				controller = new TemperatureViewController();
+				root = loadView(controller, "../view/temperature/TemperatureView.fxml");
+				break;
+			case "graph":
+				controller = new GraphViewController();
+				root = loadView(controller, "../view/graph/graphView.fxml");
 				break;
 		}
 		currentScene.setRoot(root);
@@ -52,6 +60,20 @@ public class ViewHandler extends Application {
 			temperatureViewController = loader.getController();
 			temperatureViewController.init(this, viewModelFactory.getTemperatureViewModel(), root);
 			return temperatureViewController.getRoot();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	private Region loadView(ViewController controller, String path){
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(getClass().getResource(path));
+			Region root = loader.load();
+			controller = loader.getController();
+			controller.init(this, viewModelFactory.getTemperatureViewModel(), root);
+			return controller.getRoot();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
