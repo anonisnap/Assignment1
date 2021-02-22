@@ -22,14 +22,6 @@ public class Thermometer implements Runnable {
 		outdoorTemperature = 0;
 	}
 
-	public void powerUp() {
-		radiator.turnUp();
-	}
-
-	public void powerDown() {
-		radiator.turnDown();
-	}
-
 	public void setDistanceFromHeater(int distanceFromHeater) {
 		this.distanceFromHeater = distanceFromHeater;
 	}
