@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperaturemvvm.view.graph.GraphViewController">
+   <children>
+       <MenuBar>
+           <menus>
+               <Menu mnemonicParsing="false" text="File">
+                   <items>
+                       <MenuItem mnemonicParsing="false" text="Close" />
+                   </items>
+               </Menu>
+               <Menu mnemonicParsing="false" text="View">
+                   <items>
+                       <RadioMenuItem mnemonicParsing="false" selected="true" text="Temperature">
+                           <toggleGroup>
+                               <ToggleGroup fx:id="Scene" />
+                           </toggleGroup>
+                       </RadioMenuItem>
+                       <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" text="Graph" toggleGroup="$Scene" />
+                   </items>
+               </Menu>
+           </menus>
+       </MenuBar>
+      <LineChart fx:id="temperatureGraph" minHeight="200.0" minWidth="300.0">
+        <xAxis>
+          <CategoryAxis fx:id="measureAxis" label="Measurements" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="temperatureAxis" label="Temperature" lowerBound="-10.0" minorTickCount="2" side="LEFT" tickLabelGap="8.0" tickLength="3.0" upperBound="30.0" />
+        </yAxis>
+      </LineChart>
+   </children>
+</VBox>
