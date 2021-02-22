@@ -10,8 +10,7 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperaturemvvm.view.graph.GraphViewController">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperaturemvvm.view.graph.GraphViewController">
    <children>
        <MenuBar>
            <menus>
@@ -22,17 +21,17 @@
                </Menu>
                <Menu mnemonicParsing="false" text="View">
                    <items>
-                       <RadioMenuItem mnemonicParsing="false" selected="true" text="Temperature">
+                       <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" text="Temperature">
                            <toggleGroup>
                                <ToggleGroup fx:id="Scene" />
                            </toggleGroup>
                        </RadioMenuItem>
-                       <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" text="Graph" toggleGroup="$Scene" />
+                       <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" selected="true" text="Graph" toggleGroup="$Scene" />
                    </items>
                </Menu>
            </menus>
        </MenuBar>
-      <LineChart fx:id="temperatureGraph" minHeight="200.0" minWidth="300.0">
+      <LineChart fx:id="temperatureGraph" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="200.0" minWidth="300.0" verticalZeroLineVisible="false" VBox.vgrow="ALWAYS">
         <xAxis>
           <CategoryAxis fx:id="measureAxis" label="Measurements" side="BOTTOM" />
         </xAxis>

@@ -16,25 +16,25 @@
 
 <VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="600.0" spacing="10.0" userData="Temperature presenter" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperaturemvvm.view.temperature.TemperatureViewController">
     <children>
-      <MenuBar>
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="View">
-              <items>
-                  <RadioMenuItem mnemonicParsing="false" selected="true" text="Temperature">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="Scene" />
-                     </toggleGroup>
-                  </RadioMenuItem>
-                  <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" text="Graph" toggleGroup="$Scene" />
-              </items>
-            </Menu>
-        </menus>
-      </MenuBar>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                    <items>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" selected="true" text="Temperature">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="Scene" />
+                            </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" text="Graph" toggleGroup="$Scene" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
         <HBox>
             <children>
                 <Label alignment="CENTER" prefHeight="35.0" prefWidth="597.0" text="Temperature presenter" textAlignment="CENTER">
@@ -76,29 +76,29 @@
                 <Font size="24.0" />
             </font>
         </Label>
-      <HBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="50.0" VBox.vgrow="NEVER">
-         <children>
-            <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
-               <children>
-                  <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0">
-                     <children>
-                        <Button fx:id="powerUpButton" mnemonicParsing="false" onAction="#turnPowerUp" text="Power Up" />
-                        <Button fx:id="powerDownButton" mnemonicParsing="false" onAction="#turnPowerDown" text="Power Down" />
-                     </children>
-                  </HBox>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </AnchorPane>
-            <Label fx:id="radiatorPowerLabel" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="N/A" HBox.hgrow="ALWAYS" />
-         </children>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-         <padding>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="10.0" />
-         </padding>
-      </HBox>
+        <HBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="50.0" VBox.vgrow="NEVER">
+            <children>
+                <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+                    <children>
+                        <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="20.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0">
+                            <children>
+                                <Button fx:id="powerUpButton" mnemonicParsing="false" onAction="#turnPowerUp" text="Power Up" />
+                                <Button fx:id="powerDownButton" mnemonicParsing="false" onAction="#turnPowerDown" text="Power Down" />
+                            </children>
+                        </HBox>
+                    </children>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </AnchorPane>
+                <Label fx:id="radiatorPowerLabel" alignment="TOP_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="N/A" HBox.hgrow="ALWAYS" />
+            </children>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="10.0" />
+            </padding>
+        </HBox>
     </children>
 </VBox>
