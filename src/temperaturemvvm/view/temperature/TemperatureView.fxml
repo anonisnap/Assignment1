@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" prefHeight="220.0" prefWidth="471.0" spacing="10.0" userData="Temperature presenter" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperaturemvvm.view.temperature.TemperatureViewController">
+<VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="600.0" spacing="10.0" userData="Temperature presenter" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperaturemvvm.view.temperature.TemperatureViewController">
     <children>
       <MenuBar>
         <menus>
