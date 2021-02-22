@@ -64,6 +64,11 @@ public class TemperatureViewModel implements PropertyChangeListener {
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		Platform.runLater(this::updateTemp);
+		Platform.runLater(this::updatePower);
+	}
+
+	private void updatePower() {
+		radiatorPower.setValue("Radiator Power Level: " + radiatorModel.getPower());
 	}
 
 	public StringProperty radiatorPower() {

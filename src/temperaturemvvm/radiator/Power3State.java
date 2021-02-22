@@ -17,14 +17,14 @@ public class Power3State implements RadiatorState {
 	}
 
 	@Override
-	public void turnUp(Radiator radiator) {
+	public void turnUp(Radiator r) {
 		// empty
 	}
 
 	@Override
-	public void turnDown(Radiator radiator) {
+	public void turnDown(Radiator r) {
 		t.interrupt();
-		radiator.setPowerState(new Power2State());
+		r.setPowerState(new Power2State());
 	}
 
 	@Override
