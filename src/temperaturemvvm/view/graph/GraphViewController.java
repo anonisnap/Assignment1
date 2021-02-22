@@ -27,4 +27,9 @@ public class GraphViewController implements ViewController {
 	public Region getRoot() {
 		return root;
 	}
+
+	@Override
+	public void close() {
+		viewHandler.close();
+	}
 }

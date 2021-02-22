@@ -9,4 +9,5 @@ public interface ViewController {
 	void init(ViewHandler viewHandler, TemperatureViewModel temperatureViewModel, Region root);
 	void swapScene(ActionEvent actionEvent);
 	Region getRoot();
+	void close();
 }

@@ -3,9 +3,11 @@ package temperaturemvvm.view.temperature;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
+import javafx.stage.Window;
 import temperaturemvvm.core.ViewHandler;
 import temperaturemvvm.view.ViewController;
 
@@ -56,7 +58,13 @@ public class TemperatureViewController implements ViewController {
 		temperatureViewModel.turnDownRadiator();
 	}
 
+	@Override
 	public void swapScene(ActionEvent actionEvent) {
 		viewHandler.openView(((RadioMenuItem) actionEvent.getSource()).getText().toLowerCase());
+	}
+
+	@Override
+	public void close() {
+		viewHandler.close();
 	}
 }

@@ -51,21 +51,6 @@ public class ViewHandler extends Application {
 		primaryStage.show();
 	}
 
-	private Region loadTemperatureView(String fxmlFile) {
-		TemperatureViewController temperatureViewController;
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource(fxmlFile));
-			Region root = loader.load();
-			temperatureViewController = loader.getController();
-			temperatureViewController.init(this, viewModelFactory.getTemperatureViewModel(), root);
-			return temperatureViewController.getRoot();
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
 	private Region loadView(ViewController controller, String path){
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -78,5 +63,10 @@ public class ViewHandler extends Application {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public void close() {
+		primaryStage.close();
+		System.exit(1);
 	}
 }
