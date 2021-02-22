@@ -5,6 +5,8 @@ import temperaturemvvm.model.TemperatureList;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class TemperatureModelManager implements TemperatureModel {
 	private TemperatureList temperatureList;
@@ -47,5 +49,4 @@ public class TemperatureModelManager implements TemperatureModel {
 	public void removeListener(String propertyName, PropertyChangeListener listener) {
 		property.removePropertyChangeListener(propertyName, listener);
 	}
-
 }

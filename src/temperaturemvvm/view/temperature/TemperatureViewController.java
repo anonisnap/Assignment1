@@ -10,6 +10,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Window;
 import temperaturemvvm.core.ViewHandler;
 import temperaturemvvm.view.ViewController;
+import temperaturemvvm.view.ViewModel;
 
 public class TemperatureViewController implements ViewController {
 	@FXML private Label radiatorPowerLabel;
@@ -25,13 +26,13 @@ public class TemperatureViewController implements ViewController {
 		root = null;
 	}
 
-	public void init(ViewHandler viewHandler, TemperatureViewModel temperatureViewModel, Region root) {
+	public void init(ViewHandler viewHandler, ViewModel temperatureViewModel, Region root) {
 		this.viewHandler = viewHandler;
-		this.temperatureViewModel = temperatureViewModel;
+		this.temperatureViewModel = (TemperatureViewModel) temperatureViewModel;
 		this.root = root;
-		filterLabel.textProperty().bind(temperatureViewModel.idProperty());
-		outputLabel.textProperty().bind(temperatureViewModel.temperatureProperty());
-		radiatorPowerLabel.textProperty().bind(temperatureViewModel.radiatorPower());
+		filterLabel.textProperty().bind(this.temperatureViewModel.idProperty());
+		outputLabel.textProperty().bind(this.temperatureViewModel.temperatureProperty());
+		radiatorPowerLabel.textProperty().bind(this.temperatureViewModel.radiatorPower());
 	}
 
 	public Region getRoot() {

@@ -1,20 +1,26 @@
 package temperaturemvvm.view.graph;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.layout.Region;
 import temperaturemvvm.core.ViewHandler;
 import temperaturemvvm.view.ViewController;
-import temperaturemvvm.view.temperature.TemperatureViewModel;
+import temperaturemvvm.view.ViewModel;
+
+import java.util.ArrayList;
 
 public class GraphViewController implements ViewController {
+	@FXML private LineChart temperatureGraph;
 	private ViewHandler viewHandler;
-	private TemperatureViewModel temperatureViewModel;
+	private GraphViewModel graphViewModel;
 	private Region root;
 
-	public void init(ViewHandler viewHandler, TemperatureViewModel temperatureViewModel, Region root) {
+	public void init(ViewHandler viewHandler, ViewModel graphViewModel, Region root) {
 		this.viewHandler = viewHandler;
-		this.temperatureViewModel = temperatureViewModel;
+		this.graphViewModel = (GraphViewModel) graphViewModel;
 		this.root = root;
 	}
 

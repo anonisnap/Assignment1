@@ -5,12 +5,12 @@ import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
 import temperaturemvvm.mediator.RadiatorModel;
 import temperaturemvvm.mediator.TemperatureModel;
+import temperaturemvvm.view.ViewModel;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class TemperatureViewModel implements PropertyChangeListener {
-
+public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 	private TemperatureModel temperatureModel;
 	private DoubleProperty temperature;
 	private StringProperty temperatureAsString;
