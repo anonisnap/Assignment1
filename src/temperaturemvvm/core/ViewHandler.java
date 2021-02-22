@@ -31,16 +31,17 @@ public class ViewHandler extends Application {
 		switch (id) {
 			case "temperature":
 				controller = new TemperatureViewController();
-				root = loadView(controller, "../view/temperature/TemperatureView.fxml");
+				root = loadView(id, controller, "../view/temperature/TemperatureView.fxml");
 				break;
 			case "graph":
 				controller = new GraphViewController();
-				root = loadView(controller, "../view/graph/graphView.fxml");
+				root = loadView(id, controller, "../view/graph/graphView.fxml");
 				break;
 		}
 		currentScene.setRoot(root);
 
 		String title = "";
+		assert root != null;
 		if (root.getUserData() != null) {
 			title += root.getUserData();
 		}
@@ -51,13 +52,13 @@ public class ViewHandler extends Application {
 		primaryStage.show();
 	}
 
-	private Region loadView(ViewController controller, String path){
+	private Region loadView(String caseStr, ViewController controller, String path){
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource(path));
 			Region root = loader.load();
 			controller = loader.getController();
-			controller.init(this, viewModelFactory.getTemperatureViewModel(), root);
+			controller.init(this, viewModelFactory.getViewModel(caseStr), root);
 			return controller.getRoot();
 		} catch (Exception e) {
 			e.printStackTrace();

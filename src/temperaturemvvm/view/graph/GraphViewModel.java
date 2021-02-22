@@ -9,17 +9,16 @@ import temperaturemvvm.view.ViewModel;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
 
 public class GraphViewModel implements PropertyChangeListener, ViewModel {
-	private TemperatureModelManager temperatureModel;
+	private TemperatureModel temperatureModel;
 	private IntegerProperty temperatureProperty;
 	private StringProperty id;
 	// TODO: Figure out, how to get data from the lists
 
 	public GraphViewModel(TemperatureModel temperatureModel) {
-		this.temperatureModel = (TemperatureModelManager) temperatureModel;
-		temperatureModel.addListener("Temperature", this);
+		this.temperatureModel = temperatureModel;
+		this.temperatureModel.addListener("Temperature", this);
 		id = new SimpleStringProperty();
 	}
 
