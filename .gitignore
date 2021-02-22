@@ -24,3 +24,5 @@ hs_err_pid*
 out\
 .idea\
 /.idea/Assignment1.iml
+/out/production/Assignment1/temperaturemvvm/view/graph/GraphView.fxml
+/out/production/Assignment1/temperaturemvvm/view/temperature/TemperatureView.fxml
