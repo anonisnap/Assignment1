@@ -4,7 +4,6 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import temperaturemvvm.mediator.TemperatureModel;
-import temperaturemvvm.mediator.TemperatureModelManager;
 import temperaturemvvm.view.ViewModel;
 
 import java.beans.PropertyChangeEvent;

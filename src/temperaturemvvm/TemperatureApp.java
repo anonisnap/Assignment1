@@ -5,9 +5,7 @@ import javafx.stage.Stage;
 import temperaturemvvm.core.ModelFactory;
 import temperaturemvvm.core.ViewHandler;
 import temperaturemvvm.core.ViewModelFactory;
-import temperaturemvvm.radiator.Radiator;
 import temperaturemvvm.thermometer.Thermometer;
-import temperaturemvvm.mediator.TemperatureModel;
 
 public class TemperatureApp extends Application {
 	public void start(Stage primaryStage) {

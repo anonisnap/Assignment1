@@ -3,14 +3,11 @@ package temperaturemvvm.view.graph;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.layout.Region;
 import temperaturemvvm.core.ViewHandler;
 import temperaturemvvm.view.ViewController;
 import temperaturemvvm.view.ViewModel;
-
-import java.util.ArrayList;
 
 public class GraphViewController implements ViewController {
 	@FXML private LineChart temperatureGraph;

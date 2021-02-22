@@ -1,8 +1,10 @@
 package temperaturemvvm.view.temperature;
 
 import javafx.application.Platform;
-import javafx.beans.property.*;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import temperaturemvvm.mediator.RadiatorModel;
 import temperaturemvvm.mediator.TemperatureModel;
 import temperaturemvvm.view.ViewModel;
