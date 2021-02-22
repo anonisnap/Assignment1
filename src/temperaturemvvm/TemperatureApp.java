@@ -5,7 +5,8 @@ import javafx.stage.Stage;
 import temperaturemvvm.core.ModelFactory;
 import temperaturemvvm.core.ViewHandler;
 import temperaturemvvm.core.ViewModelFactory;
-import temperaturemvvm.external.Thermometer;
+import temperaturemvvm.radiator.Radiator;
+import temperaturemvvm.thermometer.Thermometer;
 import temperaturemvvm.mediator.TemperatureModel;
 
 public class TemperatureApp extends Application {
@@ -13,12 +14,18 @@ public class TemperatureApp extends Application {
 		// Model
 		ModelFactory modelFactory = new ModelFactory();
 
-		// Thermometer
-		TemperatureModel temperatureModel = modelFactory.getTemperatureModel();
-		Thermometer therm1 = new Thermometer(temperatureModel, "t1", 20);
-		Thermometer therm2 = new Thermometer(temperatureModel, "t2", 205);
+		// Radiator - 1 Radiator
+		Radiator radiator = new Radiator();
+		Radiator outdoorRadiator = new Radiator();
+
+		// Thermometer - 2 Thermometers
+		Thermometer therm1 = new Thermometer(modelFactory.getTemperatureModel(),"t1",10, radiator);
 		therm1.setDistanceFromHeater(1);
-		therm2.setDistanceFromHeater(2);
+		Thermometer therm2 = new Thermometer(modelFactory.getTemperatureModel(),"t2",10, radiator);
+		therm2.setDistanceFromHeater(7);
+		Thermometer outdoor = new Thermometer(modelFactory.getTemperatureModel(), "outdoor", 0, outdoorRadiator);
+
+		// Thermometer Threads
 		Thread t1 = new Thread(therm1);
 		Thread t2 = new Thread(therm2);
 		t1.start();
