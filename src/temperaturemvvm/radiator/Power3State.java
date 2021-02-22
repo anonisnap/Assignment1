@@ -10,7 +10,7 @@ public class Power3State implements RadiatorState {
 					Thread.sleep(10000);
 					r.setPowerState(new Power2State());
 				} catch (InterruptedException e) {
-					System.out.println("Manually turned off by Use");
+					// Likely turned off by User
 			}
 		});
 		t.start();
