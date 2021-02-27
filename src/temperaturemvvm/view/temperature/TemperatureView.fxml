@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="600.0" spacing="10.0" userData="Temperature presenter" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperaturemvvm.view.temperature.TemperatureViewController">
+<VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="308.0" prefWidth="600.0" spacing="10.0" userData="Temperature presenter" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperaturemvvm.view.temperature.TemperatureViewController">
     <children>
         <MenuBar>
             <menus>
@@ -45,30 +45,13 @@
                 </Label>
             </children>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="87.0" prefWidth="471.0" spacing="20.0">
-            <children>
-                <Label alignment="CENTER_RIGHT" prefHeight="39.0" text="Track Thermometer (ID)" textAlignment="RIGHT">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Label>
-                <TextField fx:id="filterField" prefHeight="39.0" prefWidth="84.0">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </TextField>
-                <Button mnemonicParsing="false" onAction="#addToList" text="Add to List">
-                    <font>
-                        <Font size="18.0" />
-                    </font>
-                </Button>
-            </children>
-            <padding>
-                <Insets left="10.0" right="10.0" />
-            </padding>
-        </HBox>
         <Separator prefWidth="200.0" />
-        <VBox fx:id="trackBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="200.0" VBox.vgrow="ALWAYS" />
+        <VBox fx:id="trackBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" VBox.vgrow="ALWAYS">
+         <children>
+            <Label fx:id="t1Label" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+            <Label fx:id="t2Label" layoutX="10.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Label" />
+            <Label fx:id="t2Label1" layoutX="10.0" layoutY="27.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Outdoor: 0" />
+         </children></VBox>
         <Separator layoutX="10.0" layoutY="139.0" prefWidth="200.0" />
         <HBox alignment="BOTTOM_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="50.0" VBox.vgrow="NEVER">
             <children>

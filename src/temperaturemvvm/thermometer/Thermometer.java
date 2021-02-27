@@ -48,6 +48,7 @@ public class Thermometer implements Runnable {
 			model.addTemperature(id, currentTemperature);
 			try {
 				Thread.sleep(timeSinceLastMeasure * 1000);
+				timeSinceLastMeasure = (int) (4 + Math.random() * 4);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

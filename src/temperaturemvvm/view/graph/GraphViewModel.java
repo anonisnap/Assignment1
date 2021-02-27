@@ -10,9 +10,9 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class GraphViewModel implements PropertyChangeListener, ViewModel {
-	private final TemperatureModel temperatureModel;
+	private TemperatureModel temperatureModel;
 	private IntegerProperty temperatureProperty;
-	private final StringProperty id;
+	private StringProperty id;
 	// TODO: Figure out, how to get data from the lists
 
 	public GraphViewModel(TemperatureModel temperatureModel) {

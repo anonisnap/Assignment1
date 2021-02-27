@@ -14,8 +14,10 @@ import java.beans.PropertyChangeListener;
 
 public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 	private TemperatureModel temperatureModel;
-	private DoubleProperty temperature;
-	private StringProperty temperatureAsString;
+	private DoubleProperty temperature1;
+	private DoubleProperty temperature2;
+	private StringProperty temperatureAsString1;
+	private StringProperty temperatureAsString2;
 	private StringProperty id;
 	private StringProperty lower, higher;
 	private StringProperty warning;
@@ -25,8 +27,10 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 	public TemperatureViewModel(TemperatureModel temperatureModel, RadiatorModel radiatorModel) {
 		this.temperatureModel = temperatureModel;
 		this.radiatorModel = radiatorModel;
-		temperature = new SimpleDoubleProperty();
-		temperatureAsString = new SimpleStringProperty();
+		temperature1 = new SimpleDoubleProperty();
+		temperature2 = new SimpleDoubleProperty();
+		temperatureAsString1 = new SimpleStringProperty();
+		temperatureAsString2 = new SimpleStringProperty();
 		id = new SimpleStringProperty();
 		radiatorPower = new SimpleStringProperty();
 		warning = new SimpleStringProperty();
@@ -38,16 +42,22 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 
 	public void updateTemp() {
 		getLastTemp();
-		temperatureAsString.setValue(id.getValue() + " : " + temperature.getValue());
-		if (temperature.getValue() < Double.parseDouble(lower.getValue()) || temperature.getValue() > Double.parseDouble(higher.get())) {
-			warning.setValue("Temperature Warning");
-		} else {
-			warning.setValue("");
+		temperatureAsString1.setValue("Thermometer 1: " + temperature1.getValue());
+		temperatureAsString2.setValue("Thermometer 2: " + temperature2.getValue());
+		try {
+			if (temperature1.getValue() < Double.parseDouble(lower.getValue()) || temperature1.getValue() > Double.parseDouble(higher.get())) {
+				warning.setValue("Temperature Warning");
+			} else {
+				warning.setValue("");
+			}
+		} catch (NullPointerException nullPointerException) {
+			warning.set("");
 		}
 	}
 
 	private void getLastTemp() {
-		temperature.setValue(temperatureModel.getLastInsertedTemperature(id.getValue()).getValue());
+		temperature1.setValue(temperatureModel.getLastInsertedTemperature("t1").getValue());
+		temperature2.setValue(temperatureModel.getLastInsertedTemperature("t2").getValue());
 	}
 
 	public void setId(String id) {
@@ -64,8 +74,12 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 		radiatorPower.setValue("Radiator Power Level: " + radiatorModel.getPower());
 	}
 
-	public StringProperty temperatureProperty() {
-		return temperatureAsString;
+	public StringProperty temperature1Property() {
+		return temperatureAsString1;
+	}
+
+	public StringProperty temperature2Property() {
+		return temperatureAsString2;
 	}
 
 	public StringProperty idProperty() {
@@ -98,11 +112,4 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 		return radiatorPower;
 	}
 
-	public void setLower() {
-
-	}
-
-	public void setUpper() {
-
-	}
 }
