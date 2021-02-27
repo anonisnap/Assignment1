@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.VBox?>
-<VBox fx:id="outerBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0"
-      userData="Temperature presenter" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="temperaturemvvm.view.graph.GraphViewController">
+
+<VBox fx:id="outerBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" userData="Temperature presenter" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="temperaturemvvm.view.graph.GraphViewController">
     <children>
         <MenuBar>
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#close" text="Close"/>
+                        <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="View">
                     <items>
                         <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" text="Temperature">
                             <toggleGroup>
-                                <ToggleGroup fx:id="Scene"/>
+                                <ToggleGroup fx:id="Scene" />
                             </toggleGroup>
                         </RadioMenuItem>
-                        <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" selected="true" text="Graph"
-                                       toggleGroup="$Scene"/>
+                        <RadioMenuItem mnemonicParsing="false" onAction="#swapScene" selected="true" text="Graph" toggleGroup="$Scene" />
                     </items>
                 </Menu>
             </menus>

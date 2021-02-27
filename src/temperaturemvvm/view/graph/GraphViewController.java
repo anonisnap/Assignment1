@@ -35,8 +35,10 @@ public class GraphViewController implements ViewController {
 		yAxis.setLabel(yAxisLabel);
 		temperatureGraph = new LineChart<>(xAxis, yAxis);
 		temperatureGraph.setTitle("Temperature Over Time");
-	}
+		temperatureGraph.setMaxHeight(1000);
 
+	}
+	/** Didn't work, pretty annoying to be completely honest */
 	private void createSeries(String dataLabel, double[] valueList) {
 		XYChart.Series<Number, Number> series = new XYChart.Series<>();
 		series.setName(dataLabel);
@@ -50,7 +52,7 @@ public class GraphViewController implements ViewController {
 	private void temporaryPopulationMethod() {
 		XYChart.Series<Number, Number> series = new XYChart.Series<>();
 		series.setName("Temporary Test Numbers");
-		for (int i = 0; i < 100; i++) {
+		for (int i = -200; i <= 200; i++) {
 			series.getData().add(new XYChart.Data(i, formula(i))); // Formula currently has 3 possible graphs. #2 is kinda boring, probably not working right
 		}
 		temperatureGraph.getData().add(series);
@@ -58,13 +60,13 @@ public class GraphViewController implements ViewController {
 
 	private double formula(int i) {
 		double x = i;
-		switch (3) {
+		switch (1) {
 			case 1:
 				return Math.sin(Math.PI * x / 5) - Math.tan(2 * x);
 			case 2:
 				return Math.min(Math.sin(Math.PI * x - 2), 0.452);
 			case 3:
-				return Math.sin(954*x)-2*Math.cos(x);
+				return Math.sin(954 * x) - 2 * Math.cos(x);
 		}
 		return x;
 	}
