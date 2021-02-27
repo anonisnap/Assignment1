@@ -18,7 +18,6 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 	private DoubleProperty temperature2;
 	private StringProperty temperatureAsString1;
 	private StringProperty temperatureAsString2;
-	private StringProperty id;
 	private StringProperty lower, higher;
 	private StringProperty warning;
 	private RadiatorModel radiatorModel;
@@ -31,7 +30,6 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 		temperature2 = new SimpleDoubleProperty();
 		temperatureAsString1 = new SimpleStringProperty();
 		temperatureAsString2 = new SimpleStringProperty();
-		id = new SimpleStringProperty();
 		radiatorPower = new SimpleStringProperty();
 		warning = new SimpleStringProperty();
 		lower = new SimpleStringProperty();
@@ -65,10 +63,6 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 		temperature2.setValue(temperatureModel.getLastInsertedTemperature("t2").getValue());
 	}
 
-	public void setId(String id) {
-		this.id.set(id);
-	}
-
 	public void turnUpRadiator() {
 		radiatorModel.turnUp();
 		radiatorPower.setValue("Radiator Power Level: " + radiatorModel.getPower());
@@ -85,10 +79,6 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 
 	public StringProperty temperature2Property() {
 		return temperatureAsString2;
-	}
-
-	public StringProperty idProperty() {
-		return id;
 	}
 
 	public StringProperty warningProperty() {
