@@ -11,8 +11,8 @@ public class ViewModelFactory {
 
 	public ViewModelFactory(ModelFactory modelFactory) {
 		this.modelFactory = modelFactory;
-		temperatureViewModel = new TemperatureViewModel(modelFactory.getTemperatureModel(), modelFactory.getRadiatorModel());
-		graphViewModel = new GraphViewModel(modelFactory.getTemperatureModel());
+		temperatureViewModel = new TemperatureViewModel(this.modelFactory.getTemperatureModel(), modelFactory.getRadiatorModel());
+		graphViewModel = new GraphViewModel(this.modelFactory.getTemperatureModel());
 	}
 
 	public ViewModel getViewModel(String caseStr) {

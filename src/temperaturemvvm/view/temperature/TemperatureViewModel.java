@@ -13,13 +13,14 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
-	private final TemperatureModel temperatureModel;
-	private final DoubleProperty temperature;
-	private final StringProperty temperatureAsString;
-	private final StringProperty id;
-
-	private final RadiatorModel radiatorModel;
-	private final StringProperty radiatorPower;
+	private TemperatureModel temperatureModel;
+	private DoubleProperty temperature;
+	private StringProperty temperatureAsString;
+	private StringProperty id;
+	private StringProperty lower, higher;
+	private StringProperty warning;
+	private RadiatorModel radiatorModel;
+	private StringProperty radiatorPower;
 
 	public TemperatureViewModel(TemperatureModel temperatureModel, RadiatorModel radiatorModel) {
 		this.temperatureModel = temperatureModel;
@@ -28,6 +29,9 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 		temperatureAsString = new SimpleStringProperty();
 		id = new SimpleStringProperty();
 		radiatorPower = new SimpleStringProperty();
+		warning = new SimpleStringProperty();
+		lower = new SimpleStringProperty();
+		higher = new SimpleStringProperty();
 		temperatureModel.addListener("Temperature", this);
 		radiatorModel.addListener("Power Changed", this);
 	}
@@ -35,6 +39,11 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 	public void updateTemp() {
 		getLastTemp();
 		temperatureAsString.setValue(id.getValue() + " : " + temperature.getValue());
+		if (temperature.getValue() < Double.parseDouble(lower.getValue()) || temperature.getValue() > Double.parseDouble(higher.get())) {
+			warning.setValue("Temperature Warning");
+		} else {
+			warning.setValue("");
+		}
 	}
 
 	private void getLastTemp() {
@@ -63,6 +72,18 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 		return id;
 	}
 
+	public StringProperty warningProperty() {
+		return warning;
+	}
+
+	public StringProperty upperLimitProperty() {
+		return higher;
+	}
+
+	public StringProperty lowerLimitProperty() {
+		return lower;
+	}
+
 	@Override
 	public void propertyChange(PropertyChangeEvent evt) {
 		Platform.runLater(this::updateTemp);
@@ -75,5 +96,13 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 
 	public StringProperty radiatorPower() {
 		return radiatorPower;
+	}
+
+	public void setLower() {
+
+	}
+
+	public void setUpper() {
+
 	}
 }
