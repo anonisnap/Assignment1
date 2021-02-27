@@ -55,6 +55,11 @@ public class TemperatureViewModel implements PropertyChangeListener, ViewModel {
 		}
 	}
 
+	/**
+	 * Updates 2 properties with hardcoded data and
+	 * I fucking hate having to hardcode the dumb shit...
+	 * Anyhow, good luck fella
+	 */
 	private void getLastTemp() {
 		temperature1.setValue(temperatureModel.getLastInsertedTemperature("t1").getValue());
 		temperature2.setValue(temperatureModel.getLastInsertedTemperature("t2").getValue());
